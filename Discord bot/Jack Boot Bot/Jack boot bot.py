@@ -27,7 +27,7 @@ async def on_voice_state_update(member, before, after):
         async for entry in member.guild.audit_logs(action=discord.AuditLogAction.member_disconnect):
             disconnect_initiator = entry.user
             disconnect_time = entry.created_at
-            
+            print(disconnect_initiator)
             # Check if the disconnect initiator is not the specified user and enough time has passed
             if disconnect_initiator.id != user_id_to_track and (last_disconnect_time[user_id_to_track] is None or disconnect_time > last_disconnect_time[user_id_to_track]):
                 disconnect_count[user_id_to_track] += 1
