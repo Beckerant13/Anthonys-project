@@ -1,0 +1,1 @@
+This discord bot is to track how many times a certain user is disconnected by other users
