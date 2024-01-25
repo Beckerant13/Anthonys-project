@@ -1,40 +1,20 @@
+#Import Libraries
 import requests
 from bs4 import BeautifulSoup
+import csv
 
 
-url = "https://wiki.dmt-nexus.me/Category:Extraction_Tek"
+#connect to website 
 
+url = "https://omquartz.com/all"
 response = requests.get(url)
-import requests
-from bs4 import BeautifulSoup
+content = response.content
 
-# URL to scrape
-url = "https://wiki.dmt-nexus.me/Category:Extraction_Tek"
+soup = BeautifulSoup(content, 'html')
 
-# Send a GET request to the URL
-response = requests.get(url)
+products = []
+for card__content in soup.find_all('card__content'):
+    print(card__content)
 
-# Check if the request was successful (status code 200)
-if response.status_code == 200:
-    # Parse the HTML content of the page
-    soup = BeautifulSoup(response.text, 'html.parser')
 
-    # Now you can use BeautifulSoup methods to extract information from the HTML
-    # For example, let's print the titles of all links on the page
-    for link in soup.find_all('a'):
-        print(link.get('title'))
 
-else:
-    print(f"Failed to retrieve content. Status code: {response.status_code}")
-# Check if the request was successful (status code 200)
-if response.status_code == 200:
-    # Parse the HTML content of the page
-    soup = BeautifulSoup(response.text, 'html.parser')
-
-    # Now you can use BeautifulSoup methods to extract information from the HTML
-    # For example, let's print the titles of all links on the page
-    for link in soup.find_all('a'):
-        print(link.get('title'))
-
-else:
-    print(f"Failed to retrieve content. Status code: {response.status_code}")
