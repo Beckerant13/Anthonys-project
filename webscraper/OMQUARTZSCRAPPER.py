@@ -23,8 +23,7 @@ for url in urls:
             product_price = product_price_element.text.strip()
             print("Product Name:", product_name)
             print("Product Price:", product_price)
-            
-
+        
         print("\n")
        
         
